@@ -1,4 +1,4 @@
-# Rust bootstrap
+# Rust (Personal) Bootstrap
 
 This repo is for tracking my progress with Rust concepts, primarily following the [Rust Programming Language Book](https://doc.rust-lang.org/book/).
 
