@@ -26,3 +26,7 @@ cargo run
 - Language: Rust (version 1.90.0)
 - Build System: Cargo
 - Environment: Windows 11 (WSL / Ubuntu)
+
+## Good to know
+
+1. Functions could be deactivated with prefix: _my_func
