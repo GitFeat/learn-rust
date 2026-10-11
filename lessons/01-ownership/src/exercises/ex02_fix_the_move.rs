@@ -15,24 +15,26 @@
 
 pub fn two_owners() -> (String, String) {
     let s1 = String::from("hello");
-    let s2 = s1;
+    let s2 = s1.clone();
     (s1, s2)
 }
 
-fn consume(s: String) -> usize {
+fn consume(s: &String) -> usize {
     s.len()
 }
 
 pub fn length_then_use() -> (usize, String) {
     let s = String::from("ownership");
-    let len = consume(s);
+    let len = consume(&s);
     (len, s)
 }
 
+// Erreur value moved here, in previous iteration of loop, car lorsque name est consumé elle n'existe plus, donc impossible d'itérer dessus
+// Si la valeur avec la quelle on itère est clonnée alors on compile
 pub fn repeat_name(name: String, times: usize) -> Vec<String> {
     let mut names = Vec::new();
     for _ in 0..times {
-        names.push(name);
+        names.push(name.clone());
     }
     names
 }

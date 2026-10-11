@@ -10,16 +10,23 @@
 //!
 //! Lancer : `cargo test -p ownership ex01`
 
+// On construit la chaine puis on return
 pub fn create_owned_string() -> String {
-    todo!()
+    let s: String = String::from("rust");
+    return s
 }
 
+// On construit la chaine avec push_str(), et on emprute name avec &
 pub fn build_greeting(name: String) -> String {
-    todo!()
+    let mut hello: String = String::from("Bonjour, ");
+    hello.push_str(&name);
+    hello.push_str(" !");
+    hello
 }
 
+// Compile car i32 implémente le trait Copy, donc x dans le return est copié 2x
 pub fn duplicate_number(x: i32) -> (i32, i32) {
-    todo!()
+    return (x, x);
 }
 
 #[cfg(test)]
