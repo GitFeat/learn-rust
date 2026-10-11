@@ -30,3 +30,23 @@ cargo run
 ## Good to know
 
 1. Functions could be deactivated with prefix: _my_func
+
+## Lessons & exercises
+
+Guided lessons with exercises live in [`lessons/`](lessons/), a dedicated Cargo workspace
+(every `lessons/NN-topic/` crate is picked up automatically). Solutions are not provided.
+
+| Lesson | Crate | Book chapter |
+| --- | --- | --- |
+| [01 — Ownership](lessons/01-ownership/LESSON.md) | `ownership` | [4](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html) |
+
+```bash
+cd lessons
+cargo test -p ownership                     # todo!() exercises (all fail at first: expected)
+cargo test -p ownership ex04                # a single exercise
+cargo test -p ownership --features ex02     # opt-in exercise with an intentional compile error
+cargo test -p ownership --features broken   # everything — goal: all green
+```
+
+Workflow: read `LESSON.md`, replace the `todo!()`s (or fix the code), rerun the tests.
+Do not modify the tests.
