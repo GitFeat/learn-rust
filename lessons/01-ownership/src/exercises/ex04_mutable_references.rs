@@ -13,19 +13,24 @@
 //! Lancer : `cargo test -p ownership ex04`
 
 pub fn add_exclamation(s: &mut String) {
-    todo!()
+    s.push('!');
 }
 
 pub fn shout(s: &mut String) {
-    todo!()
+    *s = s.to_ascii_uppercase();
+    s.push('!');
 }
 
 pub fn swap_strings(a: &mut String, b: &mut String) {
-    todo!()
+    let x = a.to_string();
+    *a = b.to_string();
+    *b = x.to_string();
 }
 
 pub fn increment_all(numbers: &mut Vec<i32>) {
-    todo!()
+    for n in numbers.iter_mut(){
+        *n += 1;
+    }
 }
 
 #[cfg(test)]

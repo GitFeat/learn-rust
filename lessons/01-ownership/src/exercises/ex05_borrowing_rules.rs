@@ -11,29 +11,32 @@
 //!
 //! Lancer : `cargo test -p ownership --features ex05 ex05`
 
+//une seule &mut à la fois !
 pub fn two_mutable_borrows() -> String {
     let mut s = String::from("hello");
     let r1 = &mut s;
-    let r2 = &mut s;
     r1.push_str(", world");
+    let r2 = &mut s;
     r2.push('!');
     s
 }
 
 /// Must return the length *before* the modification, and the modified string.
+/// pas de `&mut` pendant qu'un `&` est vivant
 pub fn read_while_writing() -> (usize, String) {
     let mut s = String::from("borrow");
-    let before = &s;
+    let before = s.len();
     s.push_str("ing");
-    (before.len(), s)
+    (before, s)
 }
 
 /// Must return the first element and the vector after the push.
+/// pas de `&mut` pendant qu'un `&` est vivant
 pub fn first_then_push() -> (i32, Vec<i32>) {
     let mut v = vec![1, 2, 3];
-    let first = &v[0];
+    let first = v[0];
     v.push(4);
-    (*first, v)
+    (first, v)
 }
 
 #[cfg(test)]

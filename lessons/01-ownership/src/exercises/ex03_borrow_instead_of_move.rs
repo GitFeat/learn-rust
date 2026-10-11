@@ -12,15 +12,23 @@
 //! Lancer : `cargo test -p ownership ex03`
 
 pub fn take_and_give_back(s: String) -> (String, usize) {
-    todo!()
+    let size: usize = s.len();
+    (s, size)
 }
 
 pub fn calculate_length(s: &String) -> usize {
-    todo!()
+    s.len()
 }
 
 pub fn count_vowels(s: &String) -> usize {
-    todo!()
+    let mut count = 0;
+    for c in s.chars() {
+        match c.to_ascii_lowercase() {
+            'a' | 'e' | 'i' | 'o' | 'u' | 'y' => count += 1,
+            _ => {}
+        }
+    }
+    count
 }
 
 #[cfg(test)]
